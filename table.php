@@ -3,9 +3,12 @@
   require_once "Crud.php";
   $c = new Crud;
   $result = $c->tampil_data();
+
+  $id =$_GET['id'] ?? NULL;
   if(isset($_POST['delete'])){
     $id =$_POST['id'];
-    $c->DeleteRow($id);
+    $delete = $c->DeleteRow($id);
+    header("location: table.php");
 }
 
 ?>
@@ -63,7 +66,8 @@
       <form action="" method="POST">
       <button>edit</button>
       <input type="text" name="id" value="<?=$row['id'];?>" hidden>
-      <a href="table.php"><button type="submit" name="delete">hapus</button></a>
+      <button type="submit" name="delete">hapus</button>
+    </form>
       </form>
      </td>
   </tr>

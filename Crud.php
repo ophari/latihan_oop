@@ -2,14 +2,13 @@
 require_once "koneksi.php";
     class Crud extends Database{
      
-
+        
         public function __construct()
         {
             $db = new Database;
             $this->conn = $db->conn;
         }
 
-      
         // public function tambah(){
         //     $kode = $_POST['kode'];
         //     $nama = $_POST['nama'];
@@ -20,7 +19,6 @@ require_once "koneksi.php";
         //     }else{
         //         echo"<script>alert('berhasil')</script>";
         //     }
-            
         // }
 
         public function tampil_data(){
@@ -30,7 +28,7 @@ require_once "koneksi.php";
         }
 
         function DeleteRow($id) {
-            $sql = "DELETE FROM tbl_pegawai WHERE id ='$id'";
+            $sql = "DELETE FROM tbl_pegawai WHERE id =$id";
             $result = $this->conn->query($sql);
             return $result;
         }
