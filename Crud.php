@@ -33,7 +33,12 @@ class Crud extends Database
     {
         $sql = "DELETE FROM tbl_pegawai WHERE id = $id";
         $result = $this->conn->query($sql);
-        return $result;
+        if (!$result) {
+            echo "<script>alert('gagal masukin data')</script>";
+        } else {
+            echo "<script>alert('berhasil masukin data'); window.location.href = 'table.php'; </script>";
+        }
+      
     }
 
 
@@ -54,7 +59,7 @@ class Crud extends Database
             if (!$result) {
                 echo "<script>alert('gagal masukin data')</script>";
             } else {
-                echo "<script>alert('berhasil masukin data'); window.location.href = 'table.php'; </script>";
+                echo "<script>alert('berhasil masukin data'); window.location.href = 'index.php'; </script>";
             }
         }
     }
@@ -75,7 +80,7 @@ class Crud extends Database
             $result = $this->conn->query($sql);
 
             if ($result) {
-                echo "<script>alert('Data berhasil diperbarui'); window.location.href = 'index.php';</script>";
+                echo "<script>alert('Data berhasil diperbarui'); window.location.href = 'table.php';</script>";
             } else {
                 echo "<script>alert('Gagal memperbarui data')</script>";
             }
