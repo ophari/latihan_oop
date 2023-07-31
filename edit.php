@@ -6,6 +6,7 @@ $crud = new Crud();
 
 if (isset($_POST['submit'])) {
     $crud->edit();
+    // header("location: table.php");
 }
 
 $idToEdit = $_GET["id"];
@@ -25,9 +26,9 @@ $pegawai = $crud->getUserById($idToEdit);
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-info">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="index.php">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,7 +36,7 @@ $pegawai = $crud->getUserById($idToEdit);
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="table.php">table</a>
@@ -44,7 +45,8 @@ $pegawai = $crud->getUserById($idToEdit);
             </div>
         </div>
     </nav><br>
-
+    
+<div class="container">    
     <form action="" method="post">
         <div>
             <label for="kode ">Kode Pegawai</label><br>
@@ -56,9 +58,11 @@ $pegawai = $crud->getUserById($idToEdit);
             <label for=" nama">Nama</label><br>
             <input type="text" name="nama" placeholder="Nama" required value="<?php echo $pegawai['nama']; ?>">
         </div>
-        <input type="hidden" name="id" value="<?php echo $idToEdit; ?>">
-        <button type=" submit" name="submit">kirim</button>
+        <input type="hidden" name="id" value="<?php echo $idToEdit; ?>"><br>
+        <button type=" submit" name="submit" class="btn btn-success">kirim</button>
     </form>
+    </div>
+
 </body>
 
 </html>

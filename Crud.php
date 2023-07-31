@@ -54,7 +54,7 @@ class Crud extends Database
             if (!$result) {
                 echo "<script>alert('gagal masukin data')</script>";
             } else {
-                echo "<script>alert('berhasil masukin data')</script>";
+                echo "<script>alert('berhasil masukin data'); window.location.href = 'table.php'; </script>";
             }
         }
     }
@@ -75,7 +75,7 @@ class Crud extends Database
             $result = $this->conn->query($sql);
 
             if ($result) {
-                echo "<script>alert('Data berhasil diperbarui')</script>";
+                echo "<script>alert('Data berhasil diperbarui'); window.location.href = 'index.php';</script>";
             } else {
                 echo "<script>alert('Gagal memperbarui data')</script>";
             }

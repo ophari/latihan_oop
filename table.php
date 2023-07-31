@@ -5,10 +5,11 @@ $c = new Crud;
 $result = $c->tampil_data();
 
 $id = $_GET['id'] ?? NULL;
+
 if (isset($_POST['delete'])) {
   $id = $_POST['id'];
   $delete = $c->DeleteRow($id);
-  header("location: table.php");
+ 
 }
 
 ?>
@@ -25,9 +26,9 @@ if (isset($_POST['delete'])) {
 
 <body>
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-info">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="index.php">Welcome</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -37,7 +38,7 @@ if (isset($_POST['delete'])) {
             <a class="nav-link active" aria-current="page" href="index.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="table.php">table</a>
+            <a class="nav-link" href="table.php">Table</a>
           </li>
         </ul>
       </div>
@@ -47,6 +48,7 @@ if (isset($_POST['delete'])) {
   <?php
   $no = 1;
   ?>
+  <div class="container">
   <table class="table">
     <thead>
       <tr>
@@ -66,11 +68,11 @@ if (isset($_POST['delete'])) {
 
           <td class="d-flex gap-3">
             <a href="edit.php?id=<?= $row['id']; ?>">
-              <button>edit</button>
+              <button class="btn btn-primary">Edit</button>
             </a>
             <form action="" method="POST">
-              <input type="text" name="id" value="<?= $row['id']; ?>" hidden>
-              <button type="submit" name="delete">hapus</button>
+              <input type="text" name="id" value="<?= $row['id']; ?> " hidden>
+              <button type="submit" name="delete" class="btn btn-danger">Hapus</button>
             </form>
             </form>
           </td>
@@ -78,6 +80,7 @@ if (isset($_POST['delete'])) {
       <?php } ?>
     </tbody>
   </table>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
   </script>
 </body>
